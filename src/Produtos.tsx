@@ -25,9 +25,8 @@ export const ProdutoEdit = () => (
 export const ProdutoCreate = () => (
 <Create>
     <SimpleForm>
-      <ReferenceInput source="userId" reference="users" />
-      <TextInput source="title" />
-      <TextInput source="body" multiline rows={5} />
+      <TextInput source="nome" />
+      <TextInput source="preco" />
     </SimpleForm>
   </Create>
 );
