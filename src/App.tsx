@@ -1,4 +1,4 @@
-import { Admin, Resource, EditGuesser } from "react-admin";
+import { Admin, Resource } from "react-admin";
 import dataProvider from "./api/dataProvider";
 import { ProdutoEdit, ProdutoList, ProdutoCreate } from "./Produtos";
 
