@@ -1,34 +1,38 @@
 import { List, Datagrid, TextField, EditButton, Create, ReferenceInput} from "react-admin";
-import { Edit, SimpleForm, TextInput } from 'react-admin';
+import { Edit, SimpleForm, TextInput, SelectInput } from 'react-admin';
+import { useState, useEffect } from 'react';
+
+
 
 export const ProdutoList = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit">
-      <TextField source="nome" />
-      <TextField source="preco" />
-      <TextInput source="quantidade" />
+      <TextField source="produto" />
+      <TextField source="custo" />
+      <TextField source="quantidade" />
       <EditButton />
     </Datagrid>
   </List>
 );
 
-
-export const ProdutoEdit = () => (
-  <Edit>
+export const ProdutoEdit = (props) => (
+  <Edit {...props}>
     <SimpleForm>
       <TextInput source="id" disabled />
-      <TextInput source="nome" />
-      <TextInput source="preco" />
+      <TextInput source="produto" />
+      <TextInput source="custo" />
+      <TextInput source="quantidade" />
     </SimpleForm>
   </Edit>
 );
 
-export const ProdutoCreate = () => (
-<Create>
+
+export const ProdutoCreate = (props) => (
+  <Create {...props}>
     <SimpleForm>
-      <ReferenceInput source="userId" reference="users" />
-      <TextInput source="title" />
-      <TextInput source="body" multiline rows={5} />
+      <TextInput source="produto" />
+      <TextInput source="quantidade" />
+      <TextInput source="custo" />
     </SimpleForm>
   </Create>
 );

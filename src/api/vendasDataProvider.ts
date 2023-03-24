@@ -8,7 +8,7 @@ const apiUrl = 'http://localhost:8080';
 const httpClient = fetchUtils.fetchJson;
 
 
-const produtosDataProvider = {
+const vendasDataProvider = {
   getList: async (resource, params) => {
     //  devovlve lista atualizada
     const url = `${apiUrl}/${resource}`;
@@ -88,17 +88,16 @@ const produtosDataProvider = {
   },
 
   create: async (resource, params) => {
-    const { produto, quantidade, preco, custo, date} = params.data;
+    const { date, valor, produto, quantidade } = params.data;
     const url = `${apiUrl}/${resource}/adicionar`;
     const response = await axios({
       method: "post",
       url: url,
       data: {
+        data: date,
+        valor: valor,
         produto: produto,
-        preco: preco,
-        custo: custo,
-        quantidade: quantidade,
-        date: date,
+        quantidade: quantidade
       },
     })
     const data = await response;
@@ -123,4 +122,4 @@ const produtosDataProvider = {
 
 };
 
-export default produtosDataProvider
+export default vendasDataProvider
