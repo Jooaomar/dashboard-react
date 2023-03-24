@@ -6,6 +6,7 @@ export const ProdutoList = (props) => (
     <Datagrid rowClick="edit">
       <TextField source="nome" />
       <TextField source="preco" />
+      <TextInput source="quantidade" />
       <EditButton />
     </Datagrid>
   </List>
@@ -22,12 +23,12 @@ export const ProdutoEdit = () => (
   </Edit>
 );
 
-export const ProdutoCreate = () => (
-<Create>
-    <SimpleForm>
-      <ReferenceInput source="userId" reference="users" />
-      <TextInput source="title" />
-      <TextInput source="body" multiline rows={5} />
-    </SimpleForm>
-  </Create>
+export const ProdutoCreate = (props) => (
+<Create {...props}>
+  <SimpleForm>
+    <TextInput source="nome" />
+    <TextInput source="quantidade" />
+    <TextInput source="preco" />
+  </SimpleForm>
+</Create>
 );
