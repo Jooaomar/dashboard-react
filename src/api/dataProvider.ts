@@ -94,9 +94,10 @@ const produtosDataProvider = {
       method: "post",
       url: url,
       data: {
-        produto: produto,
+        // produto: produto,
+        produto:produto,
         preco: preco,
-        custo: custo,
+        custo_total: custo,
         quantidade: quantidade,
         date: date,
       },
@@ -111,7 +112,7 @@ const produtosDataProvider = {
     const { id, data } = params;
     const url = `${apiUrl}/${resource}/edicao/${id}`;
     try {
-      const response = await axios.put(url, data);
+      const response = await axios.post(url, data);
       return { 
         data: { ...params.data, id: data.id },
       };
