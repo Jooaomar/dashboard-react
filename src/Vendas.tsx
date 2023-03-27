@@ -6,7 +6,7 @@ import { Edit, SimpleForm, TextInput, SelectInput, DateField, DateInput, require
 export const VendasList = (props) => (
     <List {...props}>
         <Datagrid rowClick="edit">
-            <TextField source="nome" />
+            <TextField source="produto" />
             <TextField source="preco" />
             <TextField source="quantidade" />
             <EditButton />
