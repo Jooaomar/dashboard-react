@@ -8,7 +8,7 @@ export const ProdutoList = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit">
       <TextField source="produto" />
-      <TextField source="custo" />
+      <TextField source="custo_total" />
       <TextField source="quantidade" />
       <EditButton />
     </Datagrid>
