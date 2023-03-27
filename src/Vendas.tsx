@@ -1,20 +1,12 @@
 import { List, Datagrid, TextField, EditButton, Create, ReferenceInput, ReferenceField} from "react-admin";
-import { Edit, SimpleForm, TextInput, SelectInput, DateField, DateInput, required,DateFieldProps  } from 'react-admin';
+import { Edit, SimpleForm, TextInput, SelectInput, DateField, DateInput, required,DateFieldProps, DateTimeInput  } from 'react-admin';
 
 
 
 export const VendasList = (props) => (
-<<<<<<< HEAD
-    <List {...props}>
-        <Datagrid rowClick="edit">
-            <TextField source="produto" />
-            <TextField source="preco" />
-            <TextField source="quantidade" />
-            <EditButton />
-        </Datagrid>
-    </List>
-=======
-  <List {...props} sort={{ field: 'createAt', order: 'DESC'}}>
+  <List {...props} 
+    sort={{ field: 'timestamp', order: 'DESC',  }}
+  >
     <Datagrid rowClick="edit">
       <TextField source="date" />
       <TextField source="estoque"/>
@@ -25,7 +17,6 @@ export const VendasList = (props) => (
       <EditButton />
     </Datagrid>
   </List>
->>>>>>> 8f002737c97a25c0a1a65b6ff70e18c2d987f442
 );
 
 export const VendasCreate = (props) => (
