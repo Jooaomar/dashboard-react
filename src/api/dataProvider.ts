@@ -12,30 +12,23 @@ const produtosDataProvider = {
   getList: async (resource, params) => {
     //  devovlve lista atualizada
     const url = `${apiUrl}/${resource}`;
-    // const { json } = await httpClient(url);
-
-    // const data = json.pyres.map((item) => {
-    //   const [id, values] = item.item;
-    //   return {
-    //     id,
-    //     ...values,
-    //   };
-    // });
-
-    // return {
-    //   data,
-    //   total: data.length,
-    // };
-    const response = await axios.get(url);
+    // paginação
+    const { page, perPage } = params.pagination;
+    // const response = await axios.get(url);
+    const response = await axios.get(`${apiUrl}/${resource}`, {
+      params: { page, perPage },
+    });
     const data = response.data;
-    const total = data.pyres.length; // Número de itens na lista
-    const pyres = data.pyres.map((pyre) => {
+    const pyres = data.pyres ? data.pyres.map((pyre) => {
       const id = pyre.item[0];
       const values = pyre.item[1];
       return { ...values, id };
-    });
+    }) : [];
+    const total = pyres.length;
+    
     return { 
       data: pyres,
+      // data: response,
       total: total,
     };
     

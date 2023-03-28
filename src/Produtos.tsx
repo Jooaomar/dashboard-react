@@ -1,11 +1,12 @@
 import { List, Datagrid, TextField, EditButton, Create, ReferenceInput} from "react-admin";
 import { Edit, SimpleForm, TextInput, SelectInput } from 'react-admin';
 import { useState, useEffect } from 'react';
+import { Pagination } from 'react-admin';
 
 
 
 export const ProdutoList = (props) => (
-  <List {...props}>
+  <List {...props} perPage={5}>
     <Datagrid rowClick="edit">
       <TextField source="produto" />
       <TextField source="custo_total" />
