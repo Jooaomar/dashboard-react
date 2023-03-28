@@ -38,7 +38,9 @@ export const VendasEdit = (props) => (
     <Edit {...props}>
       <SimpleForm>
         <TextInput source="id" disabled />
-        <TextInput source="produto" />
+        <ReferenceInput label="Produto" source="produto" reference="produtos" allowEmpty>
+            <SelectInput optionText="produto" />
+        </ReferenceInput>
         <DateInput source="date" label="data" validate={required()} />
         <TextInput source="preco" />
         <TextInput source="quantidade" />
