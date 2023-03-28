@@ -1,10 +1,11 @@
 import { List, Datagrid, TextField, EditButton, Create, ReferenceInput, ReferenceField} from "react-admin";
-import { Edit, SimpleForm, TextInput, SelectInput, DateField, DateInput, required,DateFieldProps, DateTimeInput  } from 'react-admin';
+import { Edit, SimpleForm, Pagination, TextInput, SelectInput, DateField, DateInput, required,DateFieldProps, DateTimeInput  } from 'react-admin';
 
 
 
 export const VendasList = (props) => (
   <List {...props} 
+    page={2} perPage={5} pagination={<Pagination/>}
     sort={{ field: 'timestamp', order: 'DESC',  }}
   >
     <Datagrid rowClick="edit">
@@ -37,7 +38,7 @@ export const VendasEdit = (props) => (
     <Edit {...props}>
       <SimpleForm>
         <TextInput source="id" disabled />
-        <TextInput source="produto" disabled />
+        <TextInput source="produto" />
         <DateInput source="date" label="data" validate={required()} />
         <TextInput source="preco" />
         <TextInput source="quantidade" />

@@ -10,28 +10,14 @@ const httpClient = fetchUtils.fetchJson;
 
 const produtosDataProvider = {
   getList: async (resource, params) => {
-    //  devovlve lista atualizada
-    const url = `${apiUrl}/${resource}`;
-    // paginação
     const { page, perPage } = params.pagination;
-    // const response = await axios.get(url);
-    const response = await axios.get(`${apiUrl}/${resource}`, {
-      params: { page, perPage },
-    });
-    const data = response.data;
-    const pyres = data.pyres ? data.pyres.map((pyre) => {
-      const id = pyre.item[0];
-      const values = pyre.item[1];
-      return { ...values, id };
-    }) : [];
-    const total = pyres.length;
-    
-    return { 
-      data: pyres,
-      // data: response,
-      total: total,
-    };
-    
+    const url = `${apiUrl}/${resource}?page=${page}&per_page=${perPage}`;
+    const { data } = await axios.get(url);
+  
+    const pyres = data.items.map(item => ({ ...item, id: item.id }));
+    const total = data.total_items;
+  
+    return { data: pyres, total };
   },
 
   
@@ -81,7 +67,7 @@ const produtosDataProvider = {
   },
 
   create: async (resource, params) => {
-    const { produto, quantidade, preco, custo, date} = params.data;
+    const { produto, quantidade, preco, custo, date, medida} = params.data;
     const url = `${apiUrl}/${resource}/adicionar`;
     const response = await axios({
       method: "post",
@@ -93,6 +79,7 @@ const produtosDataProvider = {
         custo_total: custo,
         quantidade: quantidade,
         date: date,
+        medida: medida
       },
     })
     const data = await response;
