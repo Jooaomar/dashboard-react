@@ -4,7 +4,7 @@ import { useDeleteMany } from 'react-admin';
 import axios from 'axios';
 
 
-const apiUrl = 'http://localhost:8080';
+const apiUrl = 'https://api-petshob-production.up.railway.app';
 const httpClient = fetchUtils.fetchJson;
 
 
