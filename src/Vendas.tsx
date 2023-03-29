@@ -1,5 +1,5 @@
-import { List, Datagrid, TextField, EditButton, Create, ReferenceInput, ReferenceField} from "react-admin";
-import { Edit, SimpleForm, Pagination, TextInput, SelectInput, DateField, DateInput, required,DateFieldProps, DateTimeInput  } from 'react-admin';
+import { List, Datagrid, TextField, EditButton, Create, ReferenceInput, ReferenceField, NumberInput} from "react-admin";
+import { Edit, SimpleForm, NumberField, TextInput, SelectInput, DateField, DateInput, required,DateFieldProps, DateTimeInput  } from 'react-admin';
 
 
 
@@ -21,11 +21,11 @@ export const VendasCreate = (props) => (
     <Create {...props}>
       <SimpleForm>
         <DateInput source="date" label="data" validate={required()} />
-        <TextInput source="preco" />
+        <NumberInput source="preco" />
         <ReferenceInput label="Produto" source="produto" reference="produtos" allowEmpty>
             <SelectInput optionText="produto" />
         </ReferenceInput>
-        <TextInput source="quantidade" />
+        <NumberInput source="quantidade" />
       </SimpleForm>
     </Create>
 );

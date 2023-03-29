@@ -67,7 +67,7 @@ const produtosDataProvider = {
   },
 
   create: async (resource, params) => {
-    const { produto, quantidade, preco, custo, date, medida} = params.data;
+    var { produto, quantidade, preco, custo, date, medida} = params.data;
     const url = `${apiUrl}/${resource}/adicionar`;
     const response = await axios({
       method: "post",
