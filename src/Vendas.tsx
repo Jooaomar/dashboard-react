@@ -4,10 +4,7 @@ import { Edit, SimpleForm, Pagination, TextInput, SelectInput, DateField, DateIn
 
 
 export const VendasList = (props) => (
-  <List {...props} 
-    page={2} perPage={5} pagination={<Pagination/>}
-    sort={{ field: 'timestamp', order: 'DESC',  }}
-  >
+  <List {...props} >
     <Datagrid rowClick="edit">
       <TextField source="date" />
       <TextField source="estoque"/>
@@ -15,7 +12,7 @@ export const VendasList = (props) => (
       <TextField source="preco" />
       <TextField source="quantidade"/>
       <TextField source="total_venda"/>
-      <EditButton />
+      <EditButton label="Editar" />
     </Datagrid>
   </List>
 );
@@ -35,15 +32,15 @@ export const VendasCreate = (props) => (
 
 
 export const VendasEdit = (props) => (
-    <Edit {...props}>
-      <SimpleForm>
-        <TextInput source="id" disabled />
-        <ReferenceInput label="Produto" source="produto" reference="produtos" allowEmpty>
+  <Edit {...props}>
+    <SimpleForm>
+      <TextInput source="id" disabled />
+      <ReferenceInput label="Produto" source="produto" reference="produtos" allowEmpty>
             <SelectInput optionText="produto" />
-        </ReferenceInput>
-        <DateInput source="date" label="data" validate={required()} />
-        <TextInput source="preco" />
-        <TextInput source="quantidade" />
-      </SimpleForm>
-    </Edit>
-  );
+      </ReferenceInput>
+      <DateInput source="date" label="data" validate={required()} />
+      <TextInput source="preco" />
+      <TextInput source="quantidade" />
+    </SimpleForm>
+  </Edit>
+);
