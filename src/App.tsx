@@ -3,9 +3,11 @@ import produtosDataProvider from "./api/dataProvider";
 import vendasDataProvider from "./api/vendasDataProvider";
 import { ProdutoEdit, ProdutoList, ProdutoCreate } from "./Produtos";
 import { VendasEdit, VendasList, VendasCreate } from "./Vendas";
+import authProvider from '../src/api/authProvider';
+
 
 const App = () => (
- <Admin dataProvider={produtosDataProvider}>
+ <Admin authProvider={authProvider} dataProvider={produtosDataProvider}>
    <Resource name="produtos" list={ProdutoList} edit={ProdutoEdit} create={ProdutoCreate} />
    <Resource name="vendas" list={VendasList} edit={VendasEdit} create={VendasCreate} />
  </Admin>
