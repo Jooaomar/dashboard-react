@@ -3,6 +3,8 @@ import produtosDataProvider from "./api/dataProvider";
 import vendasDataProvider from "./api/vendasDataProvider";
 import { ProdutoEdit, ProdutoList, ProdutoCreate } from "./Produtos";
 import { VendasEdit, VendasList, VendasCreate } from "./Vendas";
+import authProvider from '../src/api/authProvider';
+
 
 const App = () => (
  <Admin dataProvider={produtosDataProvider}>
