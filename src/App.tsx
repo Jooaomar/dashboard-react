@@ -7,7 +7,7 @@ import authProvider from '../src/api/authProvider';
 
 
 const App = () => (
- <Admin authProvider={authProvider} dataProvider={produtosDataProvider}>
+ <Admin dataProvider={produtosDataProvider}>
    <Resource name="produtos" list={ProdutoList} edit={ProdutoEdit} create={ProdutoCreate} />
    <Resource name="vendas" list={VendasList} edit={VendasEdit} create={VendasCreate} />
  </Admin>
