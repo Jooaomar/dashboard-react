@@ -4,7 +4,8 @@ import { useDeleteMany } from 'react-admin';
 import axios from 'axios';
 
 
-const apiUrl = 'https://api-petshob-production.up.railway.app';
+// const apiUrl = 'https://api-petshob-production.up.railway.app';
+const apiUrl = "http://0.0.0.0:8080"
 const httpClient = fetchUtils.fetchJson;
 
 
@@ -18,6 +19,17 @@ const produtosDataProvider = {
     const total = data.total_items;
   
     return { data: pyres, total };
+  },
+
+  getMany: async (resource, params) => {
+    const { ids } = params;
+    const url = `${apiUrl}/${resource}/many`;
+    try {
+      const response = await axios.post(url, { ids });
+      return { data: response.data };
+    } catch (error) {
+      throw new Error(error.message);
+    }
   },
 
   
@@ -62,12 +74,13 @@ const produtosDataProvider = {
     })
     const data = await response;
     return {
-      data: { ...params.data, id: data.id },
+      // data: { ...params.data, id: data.id },
+      data: { ...params.data, id: params.id },
     };
   },
 
   create: async (resource, params) => {
-    const { produto, quantidade, preco, custo, date, medida} = params.data;
+    var { produto, quantidade, preco, custo, date, medida} = params.data;
     const url = `${apiUrl}/${resource}/adicionar`;
     const response = await axios({
       method: "post",
