@@ -6,13 +6,13 @@ import axios from "axios";
 
 const firebaseConfig = {
   // configurações do Firebase
-  apiKey: "AIzaSyB-GEFES--3_STtkIbpfFC2iwS7H_6HT30",
-  authDomain: "data-simone.firebaseapp.com",
-  databaseURL: "https://data-simone-default-rtdb.firebaseio.com",
-  projectId: "data-simone",
-  storageBucket: "data-simone.appspot.com",
-  messagingSenderId: "818619714374",
-  appId: "1:818619714374:web:1b604dfb7c117d52a7b347"
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  databaseURL: DATABASE_URL,
+  projectId: PROJECT_ID,
+  storageBucket: STORAGE_BUCKET,
+  messagingSenderId: MESSAGIN_SENDER_ID,
+  appId: APP_ID
 };
 
 firebase.initializeApp(firebaseConfig);
